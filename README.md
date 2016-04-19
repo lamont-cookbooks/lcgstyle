@@ -1,4 +1,4 @@
-# Chefstyle - Version Pinned rubocop and sane defaults for Ruby
+# Lcgstyle - Version Pinned rubocop and sane defaults for Ruby
 
 This is an internal style guide for chef ruby projects (chef-client,
 ohai, mixlib-shellout, mixlib-config, etc).
@@ -24,7 +24,7 @@ or suggestions without offering to do the work.
 The project itself is a derivative of
 [finstyle](https://github.com/fnichol/finstyle), but starts with all
 rules disabled.  The active ruleset is in the
-[config/chefstyle.yml](https://github.com/chef/chefstyle/blob/master/config/chefstyle.yml)
+[config/lcgstyle.yml](https://github.com/chef/lcgstyle/blob/master/config/lcgstyle.yml)
 file.
 
 ## How It Works
@@ -36,7 +36,7 @@ This library has a direct dependency on one specific version of RuboCop (at a ti
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'chefstyle'
+gem 'lcgstyle'
 ```
 
 And then execute:
@@ -45,34 +45,34 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install chefstyle
+    $ gem install lcgstyle
 
 ## Usage
 
 ### Vanilla RuboCop
 
-Run RuboCop as normal, simply add a `-r chefstyle` option when running:
+Run RuboCop as normal, simply add a `-r lcgstyle` option when running:
 
 ```sh
-rubocop -r chefstyle -D --format offenses
+rubocop -r lcgstyle -D --format offenses
 ```
 
-### chefstyle Command
+### lcgstyle Command
 
-Use this tool just as you would RuboCop, but invoke the `chefstyle` binary
-instead which patches RuboCop to load rules from the chefstyle gem. For example:
+Use this tool just as you would RuboCop, but invoke the `lcgstyle` binary
+instead which patches RuboCop to load rules from the lcgstyle gem. For example:
 
 ```sh
-chefstyle -D --format offenses
+lcgstyle -D --format offenses
 ```
 
 ### Rake
 
 In a Rakefile, the setup is exactly the same, except you need to require the
-chefstyle library first:
+lcgstyle library first:
 
 ```ruby
-require "chefstyle"
+require "lcgstyle"
 require "rubocop/rake_task"
 RuboCop::RakeTask.new do |task|
   task.options << "--display-cop-names"
@@ -81,21 +81,21 @@ end
 
 ### guard-rubocop
 
-You can use one of two methods. The simplest is to add the `-r chefstyle` option to the `:cli` option in your Guardfile:
+You can use one of two methods. The simplest is to add the `-r lcgstyle` option to the `:cli` option in your Guardfile:
 
 ```ruby
-guard :rubocop, cli: "-r chefstyle" do
+guard :rubocop, cli: "-r lcgstyle" do
   watch(%r{.+\.rb$})
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end
 ```
 
-Alternatively you could pass the path to Chefstyle's configuration by using the `Chefstyle.config` method:
+Alternatively you could pass the path to Lcgstyle's configuration by using the `Lcgstyle.config` method:
 
 ```ruby
-require "chefstyle"
+require "lcgstyle"
 
-guard :rubocop, cli: "--config #{Chefstyle.config}" do
+guard :rubocop, cli: "--config #{Lcgstyle.config}" do
   watch(%r{.+\.rb$})
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end
