@@ -12,10 +12,10 @@ task :vendor do
   cp(src.join("enabled.yml"), dst.join("enabled.yml"))
   cp(src.join("disabled.yml"), dst.join("disabled.yml"))
 
-  require 'rubocop'
-  require 'yaml'
-  cfg = RuboCop::Cop::Cop.all.inject({}) { |acc, cop| acc[cop.cop_name] = {"Enabled" => false}; acc }
-  File.open(dst.join("disable_all.yml"), "w"){|fh| fh.write cfg.to_yaml }
+  require "rubocop"
+  require "yaml"
+  cfg = RuboCop::Cop::Cop.all.each_with_object({}) { |acc, cop| acc[cop.cop_name] = { "Enabled" => false } }
+  File.open(dst.join("disable_all.yml"), "w") { |fh| fh.write cfg.to_yaml }
 
   sh %{git add #{dst}/{upstream,enabled,disabled,disable_all}.yml}
   sh %{git commit -m "Vendor rubocop-#{upstream.version} upstream configuration."}

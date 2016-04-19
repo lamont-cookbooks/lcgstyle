@@ -1,3 +1,3 @@
 inherit_from:
   - upstream.yml
-  - lcgstyle.yml
+  - chefstyle.yml
