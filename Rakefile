@@ -14,7 +14,7 @@ task :vendor do
 
   require "rubocop"
   require "yaml"
-  cfg = RuboCop::Cop::Cop.all.each_with_object({}) { |acc, cop| acc[cop.cop_name] = { "Enabled" => false } }
+  cfg = RuboCop::Cop::Cop.all.inject({}) { |acc, cop| acc[cop.cop_name] = { "Enabled" => false }; acc }
   File.open(dst.join("disable_all.yml"), "w") { |fh| fh.write cfg.to_yaml }
 
   sh %{git add #{dst}/{upstream,enabled,disabled,disable_all}.yml}
