@@ -83,11 +83,7 @@ Lint/StringConversionInInterpolation:
   Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
-Lint/UnifiedInteger:
-  Enabled: false
 Lint/UnneededDisable:
-  Enabled: false
-Lint/UnneededSplatExpansion:
   Enabled: false
 Lint/UnreachableCode:
   Enabled: false
@@ -96,6 +92,8 @@ Lint/UnusedBlockArgument:
 Lint/UnusedMethodArgument:
   Enabled: false
 Lint/UselessAccessModifier:
+  Enabled: false
+Lint/UselessArraySplat:
   Enabled: false
 Lint/UselessAssignment:
   Enabled: false
@@ -145,6 +143,8 @@ Performance/HashEachMethods:
   Enabled: false
 Performance/LstripRstrip:
   Enabled: false
+Performance/PushSplat:
+  Enabled: false
 Performance/RangeInclude:
   Enabled: false
 Performance/RedundantBlockCall:
@@ -160,8 +160,6 @@ Performance/ReverseEach:
 Performance/Sample:
   Enabled: false
 Performance/Size:
-  Enabled: false
-Performance/SortWithBlock:
   Enabled: false
 Performance/StartWith:
   Enabled: false
@@ -242,8 +240,6 @@ Style/Copyright:
 Style/DefWithParentheses:
   Enabled: false
 Style/PreferredHashMethods:
-  Enabled: false
-Style/DocumentationMethod:
   Enabled: false
 Style/Documentation:
   Enabled: false
@@ -453,8 +449,6 @@ Style/RescueEnsureAlignment:
   Enabled: false
 Style/RescueModifier:
   Enabled: false
-Style/SafeNavigation:
-  Enabled: false
 Style/SelfAssignment:
   Enabled: false
 Style/Semicolon:
@@ -557,8 +551,6 @@ Style/VariableInterpolation:
   Enabled: false
 Style/VariableName:
   Enabled: false
-Style/VariableNumber:
-  Enabled: false
 Style/WhenThen:
   Enabled: false
 Style/WhileUntilDo:
@@ -583,8 +575,6 @@ Rails/FindEach:
   Enabled: false
 Rails/HasAndBelongsToMany:
   Enabled: false
-Rails/NotNullColumn:
-  Enabled: false
 Rails/OutputSafety:
   Enabled: false
 Rails/Output:
@@ -595,8 +585,6 @@ Rails/ReadWriteAttribute:
   Enabled: false
 Rails/RequestReferer:
   Enabled: false
-Rails/SafeNavigation:
-  Enabled: false
 Rails/SaveBang:
   Enabled: false
 Rails/ScopeArgs:
@@ -606,6 +594,4 @@ Rails/TimeZone:
 Rails/UniqBeforePluck:
   Enabled: false
 Rails/Validation:
-  Enabled: false
-Security/JSONLoad:
   Enabled: false

@@ -260,7 +260,7 @@ Style/EndOfLine:
   Enabled: true
 
 Style/EvenOdd:
-  Description: 'Favor the use of Integer#even? && Integer#odd?'
+  Description: 'Favor the use of Fixnum#even? && Fixnum#odd?'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#predicate-methods'
   Enabled: true
 
@@ -402,7 +402,7 @@ Style/LineEndConcatenation:
 
 Style/MethodCallParentheses:
   Description: 'Do not use parentheses for method calls with no arguments.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#method-invocation-parens'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-args-no-parens'
   Enabled: true
 
 Style/MethodDefParentheses:
@@ -556,7 +556,6 @@ Style/NumericPredicate:
   Description: >-
                  Checks for the use of predicate- or comparison methods for
                  numeric comparisons.
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#predicate-methods'
   Enabled: true
 
 Style/OneLineConditional:
@@ -662,13 +661,6 @@ Style/RescueEnsureAlignment:
 Style/RescueModifier:
   Description: 'Avoid using rescue in its modifier form.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-rescue-modifiers'
-  Enabled: true
-
-Style/SafeNavigation:
-  Description: >-
-                  This cop transforms usages of a method call safeguarded by
-                  a check for the existance of the object to
-                  safe navigation (`&.`).
   Enabled: true
 
 Style/SelfAssignment:
@@ -919,10 +911,6 @@ Style/VariableName:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#snake-case-symbols-methods-vars'
   Enabled: true
 
-Style/VariableNumber:
-  Description: 'Use the configured style when numbering variables.'
-  Enabled: true
-
 Style/WhenThen:
   Description: 'Use when x then ... for one-line cases.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#one-line-cases'
@@ -1005,7 +993,7 @@ Lint/AmbiguousOperator:
   Description: >-
                  Checks for ambiguous operators in the first argument of a
                  method invocation without parentheses.
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#method-invocation-parens'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#parens-as-args'
   Enabled: true
 
 Lint/AmbiguousRegexpLiteral:
@@ -1209,19 +1197,11 @@ Lint/UnderscorePrefixedVariableName:
   Description: 'Do not use prefix `_` for a variable that is used.'
   Enabled: true
 
-Lint/UnifiedInteger:
-  Description: 'Use Integer instead of Fixnum or Bignum'
-  Enabled: true
-
 Lint/UnneededDisable:
   Description: >-
                  Checks for rubocop:disable comments that can be removed.
                  Note: this cop is not disabled when disabling all cops.
                  It must be explicitly disabled.
-  Enabled: true
-
-Lint/UnneededSplatExpansion:
-  Description: 'Checks for splat unnecessarily being called on literals'
   Enabled: true
 
 Lint/UnusedBlockArgument:
@@ -1242,6 +1222,10 @@ Lint/UselessAccessModifier:
   Description: 'Checks for useless access modifiers.'
   Enabled: true
   ContextCreatingMethods: []
+
+Lint/UselessArraySplat:
+  Description: 'Checks for useless array splats.'
+  Enabled: true
 
 Lint/UselessAssignment:
   Description: 'Checks for useless assignment to a local variable.'
@@ -1342,6 +1326,10 @@ Performance/LstripRstrip:
   Description: 'Use `strip` instead of `lstrip.rstrip`.'
   Enabled: true
 
+Performance/PushSplat:
+  Description: 'Use `concat` instead of `push(*)`.'
+  Enabled: true
+
 Performance/RangeInclude:
   Description: 'Use `Range#cover?` instead of `Range#include?`.'
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#cover-vs-include-code'
@@ -1375,7 +1363,7 @@ Performance/ReverseEach:
 Performance/Sample:
   Description: >-
                   Use `sample` instead of `shuffle.first`,
-                  `shuffle.last`, and `shuffle[Integer]`.
+                  `shuffle.last`, and `shuffle[Fixnum]`.
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#arrayshufflefirst-vs-arraysample-code'
   Enabled: true
 
@@ -1384,10 +1372,6 @@ Performance/Size:
                   Use `size` instead of `count` for counting
                   the number of elements in `Array` and `Hash`.
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#arraycount-vs-arraysize-code'
-  Enabled: true
-
-Performance/SortWithBlock:
-  Description: 'Use `sort_by(&:foo)` instead of `sort_by { |a, b| a.foo <=> b.foo }`.'
   Enabled: true
 
 Performance/StartWith:
@@ -1445,10 +1429,6 @@ Rails/HasAndBelongsToMany:
   StyleGuide: 'https://github.com/bbatsov/rails-style-guide#has-many-through'
   Enabled: true
 
-Rails/NotNullColumn:
-  Description: 'Do not add a NOT NULL column without a default value'
-  Enabled: true
-
 Rails/Output:
   Description: 'Checks for calls to puts, print, etc.'
   Enabled: true
@@ -1472,10 +1452,6 @@ Rails/RequestReferer:
   Description: 'Use consistent syntax for request.referer.'
   Enabled: true
 
-Rails/SafeNavigation:
-  Description: "Use Ruby's safe navigation operator (`&.`) instead of `try!`"
-  Enabled: true
-
 Rails/ScopeArgs:
   Description: 'Checks the arguments of ActiveRecord scopes.'
   Enabled: true
@@ -1492,8 +1468,4 @@ Rails/UniqBeforePluck:
 
 Rails/Validation:
   Description: 'Use validates :attribute, hash of validations.'
-  Enabled: true
-
-Security/JSONLoad:
-  Description : 'Prefer usage of JSON.parse'
   Enabled: true
