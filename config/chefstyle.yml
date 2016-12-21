@@ -522,3 +522,6 @@ Style/EmptyCaseCondition:
 Style/MultilineArrayBraceLayout:
   Enabled: false
 
+# This rule isn't smart enough to figure out accessors vs. things that set stuff on the system (e.g. set_member method in group providers)
+Style/AccessorMethodName:
+  Enabled: false
