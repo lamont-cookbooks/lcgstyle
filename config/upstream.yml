@@ -436,6 +436,7 @@ Style/EmptyLinesAroundClassBody:
   SupportedStyles:
     - empty_lines
     - empty_lines_except_namespace
+    - empty_lines_special
     - no_empty_lines
 
 Style/EmptyLinesAroundModuleBody:
@@ -443,7 +444,14 @@ Style/EmptyLinesAroundModuleBody:
   SupportedStyles:
     - empty_lines
     - empty_lines_except_namespace
+    - empty_lines_special
     - no_empty_lines
+
+Style/EmptyMethod:
+  EnforcedStyle: compact
+  SupportedStyles:
+    - compact
+    - expanded
 
 # Checks whether the source file has a utf-8 encoding comment or not
 # AutoCorrectEncodingComment must match the regex
@@ -998,6 +1006,7 @@ Style/TernaryParentheses:
   SupportedStyles:
     - require_parentheses
     - require_no_parentheses
+    - require_parentheses_when_complex
   AllowSafeAssignment: true
 
 Style/TrailingBlankLines:
@@ -1135,6 +1144,10 @@ Metrics/LineLength:
   # The IgnoreCopDirectives option causes the LineLength rule to ignore cop
   # directives like '# rubocop: enable ...' when calculating a line's length.
   IgnoreCopDirectives: false
+  # The IgnoredPatterns option is a list of !ruby/regexp and/or string
+  # elements. Strings will be converted to Regexp objects. A line that matches
+  # any regular expression listed in this option will be ignored by LineLength.
+  IgnoredPatterns: []
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1248,6 +1261,10 @@ Rails/Date:
 Rails/DynamicFindBy:
   Whitelist:
     - find_by_sql
+
+Rails/EnumUniqueness:
+  Include:
+    - app/models/**/*.rb
 
 Rails/Exit:
   Include:

@@ -1,4 +1,8 @@
 ---
+Bundler/DuplicatedGem:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
 Lint/AmbiguousOperator:
   Enabled: false
 Lint/AmbiguousRegexpLiteral:
@@ -169,7 +173,7 @@ Performance/Sample:
   Enabled: false
 Performance/Size:
   Enabled: false
-Performance/SortWithBlock:
+Performance/CompareWithBlock:
   Enabled: false
 Performance/StartWith:
   Enabled: false
@@ -284,6 +288,8 @@ Style/EmptyLinesAroundMethodBody:
 Style/EmptyLinesAroundModuleBody:
   Enabled: false
 Style/EmptyLiteral:
+  Enabled: false
+Style/EmptyMethod:
   Enabled: false
 Style/Encoding:
   Enabled: false
@@ -592,6 +598,8 @@ Rails/DynamicFindBy:
 Rails/Delegate:
   Enabled: false
 Rails/DelegateAllowBlank:
+  Enabled: false
+Rails/EnumUniqueness:
   Enabled: false
 Rails/Exit:
   Enabled: false
