@@ -525,3 +525,7 @@ Style/MultilineArrayBraceLayout:
 # This rule isn't smart enough to figure out accessors vs. things that set stuff on the system (e.g. set_member method in group providers)
 Style/AccessorMethodName:
   Enabled: false
+
+# Perl backrefs are just fine and the alternative is a lot of typing.
+Style/PerlBackrefs:
+  Enabled: false
